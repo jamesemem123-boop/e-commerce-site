@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+body{
+    overflow-x: hidden;
+    margin: 0;
+    width: 100vw;
+}
+.navbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.navelement ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 210px;
+    gap: 60px;
+}
+.navelement{
+    display: flex;
+}
+.navelement span{
+    display: flex;
+}
+.navelement li{
+    list-style: none;
+    font-weight: 400;
+}
+.navelement img{
+    width: 60px;
+}
+.navelement h3{
+    font-family: 'Rubik Mono One', sans-serif;
+}
+.snipe img{
+    width: 1180px;
+    height: 200px;
+    position: relative;
+    left: -24px;
+}
+.icons{
+    display: flex;
+    margin-left: 40px;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-around;
+}
+.alert img{
+    width: 16px;
+}
+.search img{
+    width: 15px;
+}
+.heart img{
+    width: 15px;
+}
+.cart img{
+    width: 15px;
+}
+.iconic img{
+    position: relative;
+    top: -200px;
+    margin-left: 550px;
+    width: 60px;
+}
+.hero h2{
+    position: relative;
+    top: -225px;
+    margin-left: 556px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+     'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.touch h2{
+    position: relative;
+    top: -80px;
+    margin-left: 460px;
+    font-weight: 800;
+    font-size: 26px;
+}
+.touch p{
+    position: relative;
+    top: -80px;
+    margin-left: 330px;
+    font-weight: 200;
+    color: gray;
+    width: 510px;
+    font-size: 16px;
+}

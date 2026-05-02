@@ -1,0 +1,678 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+body{
+    overflow-x: hidden;
+    margin: 0;
+    width: 100vw;
+}
+.navbar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.navelement ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 210px;
+    gap: 60px;
+}
+.navelement{
+    display: flex;
+}
+.navelement span{
+    display: flex;
+}
+.navelement li{
+    list-style: none;
+    font-weight: 400;
+}
+.navelement img{
+    width: 60px;
+}
+.navelement h3{
+    font-family: 'Rubik Mono One', 'sans-serif';
+}
+.snipe img{
+    width: 1180px;
+    height: 200px;
+    position: relative;
+    left: -24px;
+}
+.icons{
+    display: flex;
+    margin-left: 40px;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-around;
+}
+.alert img{
+    width: 16px;
+}
+.search img{
+    width: 15px;
+}
+.heart img{
+    width: 15px;
+}
+.cart img{
+    width: 15px;
+}
+.iconic img{
+    position: relative;
+    top: -200px;
+    margin-left: 550px;
+    width: 60px;
+}
+.hero h2{
+    position: relative;
+    top: -225px;
+    margin-left: 536px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular',
+     'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.touch h2{
+    position: relative;
+    top: -80px;
+    margin-left: 460px;
+    font-weight: 800;
+    font-size: 26px;
+}
+.touch p{
+    position: relative;
+    top: -80px;
+    margin-left: 330px;
+    font-weight: 200;
+    color: gray;
+    width: 510px;
+    font-size: 16px;
+}
+.total{
+    margin-left: 210px;
+    position: relative;
+    top: -45px;
+}
+.address p{
+ width: 120px;
+ position: relative;
+ top: -25px;
+ margin-left: 36px;
+}
+.address img{
+    width: 17px;
+}
+.add{
+ display: flex;
+ align-items: center;
+ gap: 18px;
+}
+.phone{
+    position: relative;
+    top: -22px;
+}
+.phone img{
+    width: 24px;
+}
+.mod{
+    position: relative;
+    font-size: 14px;
+    margin-left: 35px;
+    top: -20px;
+}
+.nope{
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+.working {
+    position: relative;
+    top: -20px;
+}
+.working img{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    bottom: -20px;
+}
+.time{
+    display: flex;
+    gap: 10px;
+}
+.monday{
+    font-size: 14px;
+    margin-left: 32px;
+    position: relative;
+    top: -17px;
+}
+.name h4{
+    font-size: 16px;
+}
+.name input{
+    padding: 8px 189px 28px 8px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+.email h4{
+    font-size: 15px;
+}
+.email input{
+    padding: 8px 189px 28px 8px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+.subject h4{
+    font-size: 15px;
+}
+.subject input{
+    padding: 8px 189px 38px 8px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+.message h4{
+    font-size: 15px;
+}
+.message input{
+    padding: 8px 183px 68px 18px;
+    border-radius: 8px;
+    border-width: 1px;
+}
+.main{
+    margin-left: 630px;
+    margin-top: -460px;
+    position: relative;
+   
+}
+.main button{
+    padding: 13px 70px;
+    position: relative;
+    bottom: -12px;
+    border-radius: 6px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #B88E2F;
+}
+.classic{
+    display: flex;
+    margin-top: 40px;
+    gap: 49px;
+    background-color: #faf3ea;
+    justify-content: space-around;
+    padding: 30px;
+}
+.high{
+    display: flex;
+    gap: 5px;
+}
+.high h2{
+    font-size: 20px;
+}
+.high p{
+    color: gray;
+    position: relative;
+    margin-top: -10px;
+}
+.high img{
+    width: 4.2vw;
+    height: 8vh;
+    margin-top: 15px;
+}
+.warrant{
+    display: flex;
+    margin-top: 10px;
+    gap: 5px;
+}
+.warrant h2{
+    font-size: 20px;
+    margin-top: 6px;
+}
+.warrant p{
+    color: gray;
+    position: relative;
+    margin-top: -13px;
+}
+.warrant img{
+    width: 3.8vw;
+    height: 8vh;
+}
+.free{
+    display: flex;
+    margin-top: 10px;
+    gap: 6px;
+}
+.free h2{
+    font-size: 20px;
+    position: relative;
+    margin-top: 1px;
+}
+.free p{
+    color: gray;
+    position: relative;
+    margin-top: -14px;
+}
+.free img{
+    width: 3.8vw;
+    height: 8vh;
+    margin-bottom: -10px;
+}
+.daily{
+    display: flex;
+    gap: 5px;
+}
+.daily h2{
+    font-size: 20px;
+    position: relative;
+    margin-bottom: 1px;
+}
+.daily p{
+    color: gray;
+    position: relative;
+    margin-top: -1px;
+}
+.daily img{
+    width: 3.8vw;
+    height: 8vh;
+    margin-top: 12px;
+}
+.footer{
+    padding: 40px;
+}
+.fun{
+    display: flex;
+    margin-left: 30px;
+}
+.fun ul{
+    gap: 140px;
+    display: flex;
+    position: relative;
+    margin-top: 5px;
+    margin-left: 230px;
+}
+.fun li{
+    list-style: none;
+    color: gray;
+}
+.fun a{
+    text-decoration: none;
+}
+.fun h2{
+    position: relative;
+    margin-top: -0.2px;
+}
+.slide{
+    display: flex;
+}
+.pact p{
+    margin-left: 30.5px;
+}
+.footnav ul{
+    margin-left: 153px;
+    display: flex;
+    gap: 26px;
+    flex-direction: column;
+}
+.footnav li{
+    list-style: none;
+}
+.footnav a{
+    text-decoration: none;
+    color: black;
+}
+.flipnav ul{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-left: 85px;
+}
+.flipnav li{
+    list-style: none;
+    color: black;
+}
+.flipnav a{
+    text-decoration: none;
+}
+.mail{
+    margin-left: 60px;
+
+}
+.mail input{
+    outline: none;
+    border-left: 2px;
+    border-right: 2px;
+    border-top: 2px;
+}
+.subscribe a{
+    color: black;
+    margin-left: 12px;
+    font-weight: bold;
+    position: relative;
+    bottom: -3px;
+}
+/* ============================= */
+/* LARGE TABLETS (≤1200px) */
+/* ============================= */
+@media (max-width: 1200px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .navelement ul {
+        margin-left: 120px;
+        gap: 40px;
+    }
+
+    .snipe img {
+        width: 100%;
+        left: 0;
+    }
+
+    .iconic img {
+        margin-left: 45%;
+        top: -180px;
+    }
+
+    .hero h2 {
+        margin-left: 43%;
+        top: -200px;
+    }
+
+    .touch h2 {
+        margin-left: 35%;
+    }
+
+    .touch p {
+        margin-left: 25%;
+        width: 60%;
+    }
+
+    .total {
+        margin-left: 100px;
+    }
+
+    .main {
+        margin-left: 55%;
+        margin-top: -420px;
+    }
+
+    .classic {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+}
+
+
+/* ============================= */
+/* TABLETS (≤992px) */
+/* ============================= */
+@media (max-width: 992px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .navelement ul {
+        margin-left: 60px;
+        gap: 25px;
+    }
+
+    .icons {
+        gap: 20px;
+    }
+
+    .iconic img {
+        margin-left: 42%;
+        top: -150px;
+    }
+
+    .hero h2 {
+        margin-left: 40%;
+        top: -170px;
+    }
+
+    .touch h2 {
+        margin-left: 30%;
+    }
+
+    .touch p {
+        margin-left: 20%;
+        width: 65%;
+    }
+
+    .total {
+        margin-left: 50px;
+    }
+
+    .main {
+        margin-left: 52%;
+        margin-top: -380px;
+    }
+
+    .name input,
+    .email input,
+    .subject input,
+    .message input {
+        padding-right: 120px;
+    }
+
+    .fun ul {
+        margin-left: 120px;
+        gap: 80px;
+    }
+}
+
+
+/* ============================= */
+/* SMALL TABLETS (≤768px) */
+/* ============================= */
+@media (max-width: 768px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    .hamburger {
+        display: block;
+        margin-left: auto;
+    }
+
+    .navelement ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        margin-left: 0;
+        padding: 20px 0;
+        gap: 20px;
+        text-align: center;
+        z-index: 999;
+    }
+
+    .navelement ul.active {
+        display: flex;
+    }
+
+    .icons {
+        justify-content: center;
+    }
+
+    /* HERO */
+    .snipe img {
+        height: 160px;
+    }
+
+    .iconic img {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        top: -120px;
+    }
+
+    .hero h2 {
+        margin-left: 0;
+        text-align: center;
+        top: -140px;
+    }
+
+    /* TEXT */
+    .touch h2 {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .touch p {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        text-align: center;
+    }
+
+    /* CONTACT INFO */
+    .total {
+        margin-left: 0;
+        padding: 0 20px;
+    }
+
+    .address p,
+    .mod,
+    .monday {
+        margin-left: 0;
+    }
+
+    /* FORM */
+    .main {
+        margin-left: 0;
+        margin-top: 40px;
+        padding: 0 20px;
+    }
+
+    .name input,
+    .email input,
+    .subject input,
+    .message input {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .main button {
+        width: 100%;
+    }
+
+    /* FEATURES */
+    .classic {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+
+    .high,
+    .warrant,
+    .free,
+    .daily {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* FOOTER */
+    .fun {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fun ul {
+        flex-direction: column;
+        margin-left: 0;
+        gap: 15px;
+    }
+
+    .slide {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footnav ul,
+    .flipnav ul {
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .mail {
+        margin-left: 0;
+    }
+}
+
+
+/* ============================= */
+/* MOBILE (≤576px) */
+/* ============================= */
+@media (max-width: 576px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .touch h2 {
+        font-size: 22px;
+    }
+
+    .touch p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .iconic img {
+        width: 45px;
+    }
+
+    .high img,
+    .warrant img,
+    .free img,
+    .daily img {
+        width: 50px;
+        height: auto;
+    }
+
+    .name h4,
+    .email h4,
+    .subject h4,
+    .message h4 {
+        font-size: 14px;
+    }
+}
+
+
+/* ============================= */
+/* SMALL PHONES (≤400px) */
+/* ============================= */
+@media (max-width: 400px) {
+    body{
+        overflow-x: hidden;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+    }
+
+    .touch h2 {
+        font-size: 18px;
+    }
+
+    .touch p {
+        font-size: 13px;
+    }
+
+    .main button {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .iconic img {
+        width: 35px;
+    }
+}
