@@ -10,9 +10,12 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+.icons{
+    gap: 200px;
+}
 .navelement ul {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     margin-left: 210px;
     gap: 60px;
@@ -347,6 +350,9 @@ body{
     font-weight: bold;
     position: relative;
     bottom: -3px;
+}
+.copyright p{
+    margin-left: 60px;
 }
 /* ============================= */
 /* LARGE TABLETS (≤1200px) */
