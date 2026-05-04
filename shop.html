@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniro</title>
+
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="./shop.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<body >
+
+  <!-- NAVBAR -->
+<nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="nav-left flex items-center gap-2">
+    <img src="./images/furniro-logo.png" alt="">
+    <img src="./images/furniro.png" alt="">
+  </div>
+
+  <!-- CENTER -->
+  <ul class="nav-center">
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./home.html">Home</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./shop.html">Shop</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./blog.html">Blog</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./contact.html">Contact</a>
+    </li>
+  </ul>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+
+    <!-- PROFILE -->
+    <div class="profile-wrapper">
+      <img src="./images/profile.png"
+           alt="Profile"
+           id="profileBtn">
+
+      <span id="profileWelcome"
+            class="profile-welcome"></span>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="relative flex items-center">
+
+      <button id="searchBtn">
+        <img src="./images/search.png"
+             alt="Search">
+      </button>
+
+      <!-- SEARCH BOX -->
+      <div id="searchBox"
+           class="absolute right-0 top-12 bg-white shadow-lg rounded-lg p-3 hidden w-72 z-50">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none">
+
+      </div>
+
+    </div>
+
+    <!-- LIKED -->
+    <a href="#"
+       id="openLikedModal"
+       class="relative">
+
+      <img src="./images/favorites.png"
+           alt="Wishlist">
+
+      <span id="likeCount"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+    <!-- CART -->
+    <a href="./cart.html"
+       class="relative">
+
+      <img src="./images/cart.png"
+           alt="Cart">
+
+      <span id="cartCount"
+            class="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+</nav>
+
+<!-- IMPORTANT: MODAL MOVED OUTSIDE NAV -->
+<div class="overlay-bg" id="overlay"></div>
+
+<div class="auth-modal" id="authModal">
+
+    <div class="modal-left">
+        <img src="./images/furniro-logo.png" alt="">
+        <h2>Furniro</h2>
+    </div>
+
+    <div class="modal-right">
+
+        <form id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+
+            <p>
+                Don't have an account?
+                <span id="showSignup">Click here</span>
+            </p>
+        </form>
+
+        <form id="signupForm" class="hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+
+            <p>
+                Already have an account?
+                <span id="showLogin">Login</span>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+   <!-- Hero -->
+
+  <section class="relative mt-10 h-64 md:h-65">
+  <img src="./images/hero.png" class="w-full h-full object-cover"
+  />
+  <div class="absolute inset-0 flex flex-col justify-center items-center text-black">
+    <h2 class="text-3xl md:text-5xl font-bold">
+      Shop
+    </h2>
+    <p class="mt-2 text-sm md:text-lg">
+      <span class="font-bold">Home ></span> Shop
+    </p>
+  </div>
+
+</section>
+
+<!-- Filter Section -->
+ <section class="filter-section py-5">
+  <div class="max-w-7xl mt-4 mx-auto flex flex-col lg:flex-row gap-4 justify-between items-center px-4">
+   <div class="flex flex-wrap gap-4 items-center justify-center lg:justify-start">
+      <div class="gap-2 flex items-center">
+     <button>
+      <a href="#"> <img src="/images/filter1.png" alt=""></a>
+     </button>
+    <p>Filter</p>
+      </div>
+    <button>
+      <a href="#"> <img src="/images/filter2.png" alt=""></a>
+     </button>
+    <button>
+      <a href="#"> <img src="/images/filter3.png" alt=""></a>
+     </button>
+     <img src="./images/line.png" alt="">
+     <p>Showing 1–8 of 12 results</p>
+    </div>
+
+    <div class="flex items-center gap-6 ">
+      <p class="">Show</p>
+      <p class="bg-white px-4 py-3">8</p>
+      <p class="">Short By</p>
+      <p class="bg-white px-7 py-3">Default</p>
+    </div>
+  </div>
+ </section>
+
+ 
+ <!-- CARDS -->
+<section class="max-w-7xl mx-auto px-4">
+
+  <!-- GRID -->
+  <div id="productGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8 mb-8">
+
+    <!-- 1st Page -->
+    <!-- Card Row 1 -->
+    <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product1.png" 
+         class="w-full h-56 md:h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+    <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-red-400 text-white text-sm px-2 py-2 rounded-full">
+      -30%
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+       <a href="./singleproduct.html?name=Syltherine&price=Rp%202.500.000&oldprice=Rp%203.500.000&desc=Stylish%20cafe%20chair&image=./images/product1.png">
+  
+  <button class="flex items-center gap-1">
+    <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Syltherine</h2>
+    <p class="text-gray-500 text-sm">Stylish cafe chair</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 2.500.000</p>
+      <p class="text-gray-400 line-through text-sm">Rp 3.500.000</p>
+    </div>
+  </div>
+
+</div>
+   
+<div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container (IMPORTANT) -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product2.png" class="w-full  h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Leviosa&price=Rp%202.500.000&oldprice=&desc=Stylish%20cafe%20chair&image=./images/product2.png">
+
+  <button class="flex items-center gap-1">
+  <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Leviosa</h2>
+    <p class="text-gray-500 text-sm">Stylish cafe chair</p>
+    <p class="font-bold">Rp 2.500.000</p>
+  </div>
+
+</div>
+
+  
+  <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <div class="relative overflow-hidden">
+    <img src="./images/product3.png" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <span class="absolute top-3 right-3 bg-red-400 text-white text-sm px-2 py-2 rounded-full">
+      -50%
+    </span>
+
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+  <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Lolito&price=Rp%207.000.000&oldprice=&desc=Luxury%20big%20sofa&image=./images/product3.png">
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+              <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Lolito</h2>
+    <p class="text-gray-500 text-sm">Luxury big sofa</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 7.000.000</p>
+      <p class="text-gray-400 line-through text-sm">Rp 14.000.000</p>
+    </div>
+  </div>
+
+</div>
+
+  
+ <div class="bg-gray-100 group product-card cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product4.png" 
+         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+    <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-green-600 text-white text-sm px-2 py-2 rounded-full">
+      New
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <!-- Button -->
+     <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Respira&price=Rp%20500.000&oldprice=&desc=Outdoor%20bar%20table%20and%20stool&image=./images/product4.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+          <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Respira</h2>
+    <p class="text-gray-500 text-sm">Outdoor bar table and stool</p>
+    <p class="font-bold">Rp 500.000</p>
+  </div>
+
+</div>
+    
+
+<!-- Card Row 2 -->
+    <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product5.png" 
+         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+      <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-green-600 text-white text-sm px-2 py-2 rounded-full">
+      New
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+       <a href="./singleproduct.html?name=Muggo&price=Rp%20150.000&oldprice=Rp%203.500.000&desc=Small%20mug&image=./images/product5.png">
+  
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Muggo</h2>
+    <p class="text-gray-500 text-sm">Small mug</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 150.000</p>
+    </div>
+  </div>
+
+</div>
+   
+<div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container (IMPORTANT) -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product2.png" class="w-full  h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Leviosa&price=Rp%202.500.000&oldprice=&desc=Stylish%20cafe%20chair&image=./images/product2.png">
+
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+ <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Leviosa</h2>
+    <p class="text-gray-500 text-sm">Stylish cafe chair</p>
+    <p class="font-bold">Rp 2.500.000</p>
+  </div>
+
+</div>
+
+  
+  <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <div class="relative overflow-hidden">
+    <img src="./images/product6.png" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <span class="absolute top-3 right-3 bg-red-400 text-white text-sm px-2 py-2 rounded-full">
+      -50%
+    </span>
+
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+  <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Pingky&price=Rp%207.000.000&oldprice=&desc=Luxury%20big%20sofa&image=./images/product6.png">
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+              <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Pingky</h2>
+    <p class="text-gray-500 text-sm">Cute bed set</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 7.000.000</p>
+      <p class="text-gray-400 line-through text-sm">Rp 14.000.000</p>
+    </div>
+  </div>
+
+</div>
+
+  
+ <div class="bg-gray-100 group product-card cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product7.png" 
+         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+    <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-green-600 text-white text-sm px-2 py-2 rounded-full">
+      New
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <!-- Button -->
+     <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Potty&price=Rp%20500.000&oldprice=&desc=Outdoor%20bar%20table%20and%20stool&image=./images/product7.png">
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+          <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Potty</h2>
+    <p class="text-gray-500 text-sm">Minimalist flower pot</p>
+    <p class="font-bold">Rp 500.000</p>
+  </div>
+
+</div>
+<!-- 2nd Page -->
+<!-- Card Row 3 -->
+    <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product1.png" 
+         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+    <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-red-400 text-white text-sm px-2 py-2 rounded-full">
+      -30%
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+       <a href="./singleproduct.html?name=Syltherine&price=Rp%202.500.000&oldprice=Rp%203.500.000&desc=Stylish%20cafe%20chair&image=./images/product1.png">
+  
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+ <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Syltherine</h2>
+    <p class="text-gray-500 text-sm">Stylish cafe chair</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 2.500.000</p>
+      <p class="text-gray-400 line-through text-sm">Rp 3.500.000</p>
+    </div>
+  </div>
+
+</div>
+   
+<div class="bg-gray-100 product-card group cursor-pointer">
+
+  <!-- Image container (IMPORTANT) -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product2.png" class="w-full  h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Leviosa&price=Rp%202.500.000&oldprice=&desc=Stylish%20cafe%20chair&image=./images/product2.png">
+
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+       <a href="#">
+      <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Leviosa</h2>
+    <p class="text-gray-500 text-sm">Stylish cafe chair</p>
+    <p class="font-bold">Rp 2.500.000</p>
+  </div>
+
+</div>
+
+  
+  <div class="bg-gray-100 product-card group cursor-pointer">
+
+  <div class="relative overflow-hidden">
+    <img src="./images/product3.png" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" alt="">
+
+    <span class="absolute top-3 right-3 bg-red-400 text-white text-sm px-2 py-2 rounded-full">
+      -50%
+    </span>
+
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+  <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Lolito&price=Rp%207.000.000&oldprice=&desc=Luxury%20big%20sofa&image=./images/product3.png">
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+              <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+  <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Lolito</h2>
+    <p class="text-gray-500 text-sm">Luxury big sofa</p>
+
+    <div class="flex items-center gap-3 mt-2">
+      <p class="font-bold">Rp 7.000.000</p>
+      <p class="text-gray-400 line-through text-sm">Rp 14.000.000</p>
+    </div>
+  </div>
+
+</div>
+
+  
+ <div class="bg-gray-100 group product-card cursor-pointer">
+
+  <!-- Image container -->
+  <div class="relative overflow-hidden">
+
+    <!-- Image -->
+    <img src="./images/product4.png" 
+         class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" 
+         alt="">
+
+    <!-- Badge -->
+    <span class="absolute top-3 right-3 bg-green-600 text-white text-sm px-2 py-2 rounded-full">
+      New
+    </span>
+
+    <!-- Overlay -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex flex-col justify-center items-center gap-4">
+
+      <!-- Button -->
+     <a href="#"><button class="add-to-cart-btn bg-white text-yellow-700 px-6 py-2 font-semibold">
+  Add to cart
+</button></a>
+
+      <div class="flex gap-4 text-white text-sm">
+<a href="./singleproduct.html?name=Respira&price=Rp%20500.000&oldprice=&desc=Outdoor%20bar%20table%20and%20stool&image=./images/product4.png">
+  <button class="flex items-center gap-1">
+   <img src="./images/view2.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+       <a href="#">
+          <button class="like-btn flex items-center gap-1">
+  <img 
+    src="./images/like.png" 
+    data-default="./images/like.png"
+    data-liked="./images/liked.png"
+    class="like-icon w-4 h-4 transition"
+    alt=""
+  >
+ <span class="like-text text-white">Like</span>
+</button>
+       </a>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 space-y-1">
+    <h2 class="font-bold text-lg">Respira</h2>
+    <p class="text-gray-500 text-sm">Outdoor bar table and stool</p>
+    <p class="font-bold">Rp 500.000</p>
+  </div>
+
+</div>
+
+
+
+  </div>
+
+  <!-- PAGINATION -->
+  <div class="flex justify-center mb-10">
+    <div class="flex gap-3 bg-gray-100 p-4 rounded">
+<button onclick="changePage(1)" class="page-btn px-4 py-2 rounded bg-yellow-600 text-white">1</button>
+<button onclick="changePage(2)" class="page-btn px-4 py-2 rounded bg-gray-200">2</button>
+
+      <button onclick="nextPage()" class="px-4 py-2 rounded bg-gray-200">Next</button>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Features -->
+<section class="max-w-7xl  features-section mx-auto px-4 py-14">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/quality.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">High Quality</h3>
+        <p class="text-gray-500 text-sm">Crafted from top materials</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/warranty.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Warranty Protection</h3>
+        <p class="text-gray-500 text-sm">Over 2 years</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/shipping.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Free Shipping</h3>
+        <p class="text-gray-500 text-sm">Order over $150</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/support.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">24 / 7 Support</h3>
+        <p class="text-gray-500 text-sm">Dedicated support</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Footer -->
+ <footer class="bg-gray-100 mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- Logo + Address -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Funiro.</h2>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          400 University Drive Suite 200 Coral <br>
+          Gables, <br>
+          FL 33134 USA
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="./home.html" class="hover:text-yellow-600">Home</a></li>
+          <li><a href="./shop.html" class="hover:text-yellow-600">Shop</a></li>
+          <li><a href="./blog.html" class="hover:text-yellow-600">Blog</a></li>
+          <li><a href="./contact.html" class="hover:text-yellow-600">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Help</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="hover:text-black">Payment Options</a></li>
+          <li><a href="#" class="hover:text-black">Returns</a></li>
+          <li><a href="#" class="hover:text-black">Privacy Policies</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Newsletter</h3>
+
+        <div class="flex  items-center border-b border-gray-400 pb-1">
+          <input 
+            type="email" 
+            placeholder="Enter Your Email Address" 
+            class="bg-transparent outline-none text-sm flex-1 placeholder-gray-400"
+          >
+          <button class="text-sm font-semibold ml-3 hover:underline">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t mt-10 pt-6 text-sm text-gray-500">
+      2023 Funiro. All rights reserved
+    </div>
+
+  </div>
+</footer>
+
+<!-- LIKED PRODUCTS MODAL -->
+<div id="likedModal"
+     class="fixed inset-0 bg-black/50 hidden justify-center items-center z-[100]">
+
+  <div class="bg-white w-[90%] max-w-2xl rounded-xl p-6 relative max-h-[80vh] overflow-y-auto">
+
+    <!-- Close Button -->
+    <button id="closeLikedModal"
+            class="absolute top-4 right-4 text-2xl font-bold">
+      ×
+    </button>
+
+    <h2 class="text-2xl font-bold mb-6">
+      Liked Products
+    </h2>
+
+    <!-- Products Container -->
+    <div id="likedProductsContainer"
+         class="space-y-4">
+
+      <!-- Products will appear here -->
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./shop.js"></script>
+</body>
+</html>

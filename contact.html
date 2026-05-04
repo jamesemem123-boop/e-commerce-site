@@ -3,159 +3,468 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Furniro.</title>
+    <title>Furniro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="./contact.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<link rel="stylesheet" href="contact.css">
 <body>
-    <div class="navbar">
-        <div class="navelement">
-            <span><img src="images/Meubel House_Logos-05.png" alt=""><h3>Furniro</h3></span>
-            <ul>
-                <li>Home</li>
-                <li>Shop</li>
-                <li>About</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-        <div class="icons">
-            <div class="alert"><img src="images/mdi_account-alert-outline.png" alt=""></div>
-            <div class="search"><img src="images/akar-icons_search.png" alt=""></div>
-            <div class="heart"><img src="images/akar-icons_heart.png" alt=""></div>
-            <div class="cart"><img src="images/ant-design_shopping-cart-outlined.png" alt=""></div>
-        </div>
+  <!-- NAVBAR -->
+<nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="nav-left flex items-center gap-2">
+    <img src="./images/furniro-logo.png" alt="">
+    <img src="./images/furniro.png" alt="">
+  </div>
+
+  <!-- CENTER -->
+  <ul class="nav-center">
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./home.html">Home</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./shop.html">Shop</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./blog.html">Blog</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./contact.html">Contact</a>
+    </li>
+  </ul>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+
+    <!-- PROFILE -->
+    <div class="profile-wrapper">
+      <img src="./images/profile.png"
+           alt="Profile"
+           id="profileBtn">
+
+      <span id="profileWelcome"
+            class="profile-welcome"></span>
     </div>
-    <div class="hero">
-        <div class="hero-img">
-            <div class="snipe"><img src="images/Rectangle 1.png" alt=""></div>
-            <div class="iconic"><img src="images/Meubel House_Logos-05.png" alt=""></div>
-        </div>
-        <h2>Contact</h2>
+
+    <!-- SEARCH -->
+    <div class="relative flex items-center">
+
+      <button id="searchBtn">
+        <img src="./images/search.png"
+             alt="Search">
+      </button>
+
+      <!-- SEARCH BOX -->
+      <div id="searchBox"
+           class="absolute right-0 top-12 bg-white shadow-lg rounded-lg p-3 hidden w-72 z-50">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none">
+
+      </div>
+
     </div>
-    <div class="touch">
-        <h2>Get In Touch With Us</h2>
-        <p>For more information about our product and services. 
-            Please feel free to drop us<br/> an email. 
-            Our staff will always be there to help you out. 
-            Do not hesitate</p>
+
+    <!-- LIKED -->
+    <a href="#"
+       id="openLikedModal"
+       class="relative">
+
+      <img src="./images/favorites.png"
+           alt="Wishlist">
+
+      <span id="likeCount"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+    <!-- CART -->
+    <a href="./cart.html"
+       class="relative">
+
+      <img src="./images/cart.png"
+           alt="Cart">
+
+      <span id="cartCount"
+            class="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+</nav>
+
+<!-- IMPORTANT: MODAL MOVED OUTSIDE NAV -->
+<div class="overlay-bg" id="overlay"></div>
+
+<div class="auth-modal" id="authModal">
+
+    <div class="modal-left">
+        <img src="./images/furniro-logo.png" alt="">
+        <h2>Furniro</h2>
     </div>
-        <div class="total">
-            <div class="address">
-                <div class="add">
-                    <img src="images/Vector.png" alt="">
-                    <h3>Address</h3>
-                </div>
-                <span><p>236 5th SE Avenue, New York NY10000, United States</p></span>
-            </div>
-            <div class="phone">
-                <div class="nope">
-                  <img src="images/bxs_phone.png" alt="">
-                  <h3>Phone</h3>
-                </div>
-                <div class="mod">
-                    <p>Mobile: +(84) 546-6789</p>
-                    <span>Hotline: +(84) 456-6789</span>
-                </div>
-            </div>
-            <div class="working">
-                <div class="time">
-                    <img src="images/bi_clock-fill.png" alt="">
-                    <h3>Working Time</h3>
-                </div>
-                <div class="monday">
-                    <p>Monday-Friday: 9:00-22:00</p>
-                    <span>Saturday-Sunday: 9:00-21:00</span>
-                </div>
-            </div>
+
+    <div class="modal-right">
+
+        <form id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+
+            <p>
+                Don't have an account?
+                <span id="showSignup">Click here</span>
+            </p>
+        </form>
+
+        <form id="signupForm" class="hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+
+            <p>
+                Already have an account?
+                <span id="showLogin">Login</span>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+
+   <!-- Hero -->
+
+  <section class="relative mt-10 h-64 md:h-65">
+  <img src="./images/hero.png" class="w-full h-full object-cover"
+  />
+  <div class="absolute  inset-0 flex flex-col justify-center items-center text-black">
+    <img src="./images/furniro-logo.png" alt="">
+    <h2 class="text-3xl mt-5 md:text-5xl font-bold">
+      Contact
+    </h2>
+    <p class="mt-4 text-sm md:text-lg">
+      <span class="font-bold">Cart ></span> Contact
+    </p>
+  </div>
+
+</section>
+
+
+<!-- Contact Section -->
+<section class="bg-[#f9f9f9] py-16 px-4">
+
+  <!-- Container -->
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <h2 class="text-3xl md:text-4xl font-bold text-black">
+        Get In Touch With Us
+      </h2>
+
+      <p class="text-gray-500 text-sm md:text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+        For More Information About Our Product & Services, Please Feel Free To Drop Us
+        An Email. Our Staff Always Be There To Help You Out. Do Not Hesitate!
+      </p>
+    </div>
+
+    <!-- Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+
+      <!-- Left Info -->
+      <div class="space-y-10">
+
+        <!-- Address -->
+        <div class="flex gap-4">
+          <div class="mt-1">
+            <img src="./images/location.png" class="w-6 h-6" alt="">
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-2">Address</h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              236 5th SE Avenue, New York <br>
+              NY10000, United States
+            </p>
+          </div>
         </div>
-        <div class="main">
-            <div class="name">
-                <h4>Your Name</h4>
-                <input type="text" placeholder="Abc">
-            </div>
-            <div class="email">
-                <h4>Your Email</h4>
-                <input type="email" placeholder="Abc@gmail.com">
-            </div>
-            <div class="subject">
-                <h4>Subject</h4>
-                <input type="text" placeholder="This is optional">
-            </div>
-            <div class="message">
-                <h4>Message</h4>
-                <input type="text" placeholder="Hi I'd like to ask about...">
-            </div>
-            <button type="submit">Submit</button>
+
+        <!-- Phone -->
+        <div class="flex gap-4">
+          <div class="mt-1">
+            <img src="./images/phone.png" class="w-6 h-6" alt="">
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-2">Phone</h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              Mobile: +(84) 546-6789 <br>
+              Hotline: +(84) 456-6789
+            </p>
+          </div>
         </div>
-        <div class="classic">
-            <div class="high">
-                <img src="images/trophy 1.png" alt="">
-                <div class="quality">
-                    <h2>High Quality</h2>
-                    <p>crafted from top materials</p>
-                </div>
-            </div>
-            <div class="warrant">
-                <img src="images/guarantee.png" alt="">
-                <div class="Protect">
-                    <h2>Warranty Protection</h2>
-                    <p>Over 2 years</p>
-                </div>
-            </div>
-            <div class="free">
-                <img src="images/shipping.png" alt="">
-                <div class="Shipping">
-                    <h2>Free shipping</h2>
-                    <p>Order over $150</p>
-                </div>
-            </div>
-            <div class="daily">
-                <img src="images/customer-support.png" alt="">
-                <div class="support">
-                    <h2>24 / 7 Support</h2>
-                    <p>Dedicated support</p>
-                </div>
-            </div>
+
+        <!-- Working Time -->
+        <div class="flex gap-4">
+          <div class="mt-1">
+            <img src="./images/clock.png" class="w-6 h-6" alt="">
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold mb-2">Working Time</h3>
+
+            <p class="text-gray-600 leading-relaxed">
+              Monday-Friday: 9:00 - 22:00 <br>
+              Saturday-Sunday: 9:00 - 21:00
+            </p>
+          </div>
         </div>
-        <div class="footer">
-            <div class="fun">
-                <h2>Furniro.</h2>
-                <ul>
-                    <a href="#"><li>Links</li></a>
-                    <a href="#"><li>Help</li></a>
-                    <a href="#"><li>Newsletter</li></a>
-                </ul>
-            </div>
-            <div class="slide">
-                <div class="pact">
-                    <p>400 Drive suite 200 Coral<br/> Gables,<br/> FL 33134 USA</p>
-                </div>
-                <div class="footnav">
-                    <ul>
-                        <a href="#"><li>Home</li></a>
-                        <a href="#"><li>Shop</li></a>
-                        <a href="#"><li>About</li></a>
-                        <a href="#"><li>Contact</li></a>
-                    </ul>
-                </div>
-                <div class="flipnav">
-                    <ul>
-                        <a href="#"><li>Payment Options</li></a>
-                        <a href="#"><li>Returns</li></a>
-                        <a href="#"><li>Privacy Policies</li></a>
-                    </ul>
-                </div>
-                <div class="mail">
-                    <input type="email" placeholder="Enter Your Email Address">
-                </div>
-                <div class="subscribe">
-                    <a href="#">SUBSCRIBE</a>
-                </div>
-            </div>
+
+      </div>
+
+      <!-- Right Form -->
+      <form id="contactForm" class="space-y-6">
+
+        <!-- Name -->
+        <div>
+          <label  class="block mb-2 font-medium text-sm">
+            Your name
+          </label>
+
+          <input required
+            type="text"
+            placeholder="Abc"
+            class="w-full border border-gray-300 rounded-lg px-5 py-4 outline-none focus:border-yellow-600"
+          >
         </div>
-        <hr class="hr-bottom">
-        <div class="copyright">
-            <p>2023 Funiro. All rights reserved.</p>
+
+        <!-- Email -->
+        <div>
+          <label class="block mb-2 font-medium text-sm">
+            Email address
+          </label>
+
+          <input required
+            type="email"
+            placeholder="Abc@def.com"
+            class="w-full border border-gray-300 rounded-lg px-5 py-4 outline-none focus:border-yellow-600"
+          >
         </div>
-<script src="contact.js"></script>
+
+        <!-- Subject -->
+        <div>
+          <label class="block mb-2 font-medium text-sm">
+            Subject
+          </label>
+
+          <input
+            type="text"
+            placeholder="This is an optional"
+            class="w-full border border-gray-300 rounded-lg px-5 py-4 outline-none focus:border-yellow-600"
+          >
+        </div>
+
+        <!-- Message -->
+        <div>
+          <label class="block mb-2 font-medium text-sm">
+            Message
+          </label>
+
+          <textarea required
+            rows="5"
+            placeholder="Hi! I'd like to ask about"
+            class="w-full border border-gray-300 rounded-lg px-5 py-4 outline-none resize-none focus:border-yellow-600"
+          ></textarea>
+        </div>
+
+        <!-- Button -->
+        <button
+          type="submit"
+          class="bg-yellow-700 hover:bg-yellow-800 transition text-white px-10 py-4 rounded-md"
+        >
+          Submit
+        </button>
+
+      </form>
+
+      <!-- Success Message -->
+<div
+  id="successMessage"
+  class="fixed top-28 right-5 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-300 translate-y-[-20px]"
+>
+  Message sent successfully!
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Features -->
+<section class="max-w-7xl  features-section mx-auto px-4 py-14">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/quality.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">High Quality</h3>
+        <p class="text-gray-500 text-sm">Crafted from top materials</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/warranty.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Warranty Protection</h3>
+        <p class="text-gray-500 text-sm">Over 2 years</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/shipping.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Free Shipping</h3>
+        <p class="text-gray-500 text-sm">Order over $150</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/support.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">24 / 7 Support</h3>
+        <p class="text-gray-500 text-sm">Dedicated support</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Footer -->
+ <footer class="bg-gray-100 mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- Logo + Address -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Funiro.</h2>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          400 University Drive Suite 200 Coral <br>
+          Gables, <br>
+          FL 33134 USA
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="./home.html" class="hover:text-yellow-600">Home</a></li>
+          <li><a href="./shop.html" class="hover:text-yellow-600">Shop</a></li>
+          <li><a href="./blog.html" class="hover:text-yellow-600">Blog</a></li>
+          <li><a href="./contact.html" class="hover:text-yellow-600">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Help</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="hover:text-black">Payment Options</a></li>
+          <li><a href="#" class="hover:text-black">Returns</a></li>
+          <li><a href="#" class="hover:text-black">Privacy Policies</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Newsletter</h3>
+
+        <div class="flex  items-center border-b border-gray-400 pb-1">
+          <input 
+            type="email" 
+            placeholder="Enter Your Email Address" 
+            class="bg-transparent outline-none text-sm flex-1 placeholder-gray-400"
+          >
+          <button class="text-sm font-semibold ml-3 hover:underline">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t mt-10 pt-6 text-sm text-gray-500">
+      2023 Funiro. All rights reserved
+    </div>
+
+  </div>
+</footer>
+
+<!-- LIKED PRODUCTS MODAL -->
+<div id="likedModal"
+     class="fixed inset-0 bg-black/50 hidden justify-center items-center z-[100]">
+
+  <div class="bg-white w-[90%] max-w-2xl rounded-xl p-6 relative max-h-[80vh] overflow-y-auto">
+
+    <!-- Close Button -->
+    <button id="closeLikedModal"
+            class="absolute top-4 right-4 text-2xl font-bold">
+      ×
+    </button>
+
+    <h2 class="text-2xl font-bold mb-6">
+      Liked Products
+    </h2>
+
+    <!-- Products Container -->
+    <div id="likedProductsContainer"
+         class="space-y-4">
+
+      <!-- Products will appear here -->
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./contact.js"></script>
 </body>
 </html>

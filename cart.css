@@ -1,0 +1,296 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Montserrat";
+  background: white;
+  overflow-x: hidden;
+}
+
+.features-section {
+  background-color: #f9f1e7;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 20px 50px;
+
+  background: white;
+  z-index: 1000;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+
+  list-style: none;
+}
+
+.nav-center a {
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.nav-right img {
+  width: 20px;
+  cursor: pointer;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-welcome {
+  font-size: 12px;
+  color: #b88e2f;
+  background: #f2f2f2;
+  padding: 3px 8px;
+  border-radius: 20px;
+
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+nav a {
+  font-size: 13px;
+}
+
+/* BACKDROP BLUR */
+.overlay-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  display: none;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+/* MODAL */
+.auth-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: 3000;
+
+  width: 650px;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+/* SHOW STATE */
+.auth-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay-bg.active {
+  display: block;
+  pointer-events: auto;
+}
+
+/* LEFT */
+.modal-left {
+  flex: 1;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* RIGHT */
+.modal-right {
+  flex: 1;
+  padding: 20px;
+}
+
+.profile-toast {
+  position: fixed;
+  top: 70px;
+  right: 60px;
+
+  background: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  font-size: 12px;
+
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: 0.3s;
+  z-index: 10000;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.profile-welcome {
+  font-size: 12px;
+  color: #b88e2f;
+  background: #f2f2f2;
+  padding: 3px 8px;
+  border-radius: 20px;
+
+  opacity: 0;
+  transition: 0.3s;
+  white-space: nowrap;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+
+  background: #b88e2f;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: 0.3s ease;
+
+  z-index: 4000;
+}
+
+.hidden {
+  display: none;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* SWITCH TEXT */
+span {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 12px 15px;
+    position: relative;
+  }
+
+  /* LOGO */
+  .nav-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .nav-left img:first-child {
+    width: 28px;
+  }
+
+  .nav-left img:last-child {
+    width: 70px;
+  }
+
+  /* RIGHT SIDE */
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    position: static;
+    transform: none;
+  }
+
+  .nav-right img {
+    width: 18px;
+  }
+
+  /* HIDE WELCOME TEXT */
+  .profile-welcome {
+    display: none;
+  }
+
+  /* MENU ICON */
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  /* MOBILE MENU */
+  .nav-center {
+    position: absolute;
+    top: 70px;
+    left: 0;
+
+    width: 100%;
+    background: white;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    padding: 20px 0;
+
+    display: none;
+
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  .nav-center.active {
+    display: flex;
+  }
+
+  /* SEARCH BOX */
+  #searchBox {
+    right: -40px;
+    width: 220px;
+  }
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Furniro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="stylesheet" href="./cart.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar">
+
+  <!-- LEFT -->
+  <div class="nav-left flex items-center gap-2">
+    <img src="./images/furniro-logo.png" alt="">
+    <img src="./images/furniro.png" alt="">
+  </div>
+
+  <!-- CENTER -->
+  <ul class="nav-center">
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./home.html">Home</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./shop.html">Shop</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./blog.html">Blog</a>
+    </li>
+
+    <li>
+      <a class="hover:text-yellow-600 transition" href="./contact.html">Contact</a>
+    </li>
+  </ul>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+
+    <!-- PROFILE -->
+    <div class="profile-wrapper">
+      <img src="./images/profile.png"
+           alt="Profile"
+           id="profileBtn">
+
+      <span id="profileWelcome"
+            class="profile-welcome"></span>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="relative flex items-center">
+
+      <button id="searchBtn">
+        <img src="./images/search.png"
+             alt="Search">
+      </button>
+
+      <!-- SEARCH BOX -->
+      <div id="searchBox"
+           class="absolute right-0 top-12 bg-white shadow-lg rounded-lg p-3 hidden w-72 z-50">
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search products..."
+          class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none">
+
+      </div>
+
+    </div>
+
+    <!-- LIKED -->
+    <a href="#"
+       id="openLikedModal"
+       class="relative">
+
+      <img src="./images/favorites.png"
+           alt="Wishlist">
+
+      <span id="likeCount"
+            class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+    <!-- CART -->
+    <a href="./cart.html"
+       class="relative">
+
+      <img src="./images/cart.png"
+           alt="Cart">
+
+      <span id="cartCount"
+            class="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+        0
+      </span>
+
+    </a>
+
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" id="menuToggle">
+    ☰
+  </div>
+
+</nav>
+
+<!-- IMPORTANT: MODAL MOVED OUTSIDE NAV -->
+<div class="overlay-bg" id="overlay"></div>
+
+<div class="auth-modal" id="authModal">
+
+    <div class="modal-left">
+        <img src="./images/furniro-logo.png" alt="">
+        <h2>Furniro</h2>
+    </div>
+
+    <div class="modal-right">
+
+        <form id="loginForm">
+            <h2>Login</h2>
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Login</button>
+
+            <p>
+                Don't have an account?
+                <span id="showSignup">Click here</span>
+            </p>
+        </form>
+
+        <form id="signupForm" class="hidden">
+            <h2>Sign Up</h2>
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+
+            <p>
+                Already have an account?
+                <span id="showLogin">Login</span>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+   <!-- Hero -->
+
+  <section class="relative mt-10 h-64 md:h-65">
+  <img src="./images/hero.png" class="w-full h-full object-cover"
+  />
+  <div class="absolute  inset-0 flex flex-col justify-center items-center text-black">
+    <img src="./images/furniro-logo.png" alt="">
+    <h2 class="text-3xl mt-5 md:text-5xl font-bold">
+      Cart
+    </h2>
+    <p class="mt-4 text-sm md:text-lg">
+      <span class="font-bold">Home ></span> Cart
+    </p>
+  </div>
+
+</section>
+
+<!-- CART SECTION -->
+<section class="max-w-7xl mx-auto px-4 py-10">
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+    <!-- LEFT SIDE -->
+    <div class="lg:col-span-2 overflow-x-auto">
+
+      <!-- TABLE HEADER -->
+      <div class="hidden md:grid grid-cols-5 bg-[#F9F1E7] px-6 py-4 rounded font-semibold text-sm">
+
+        <p class="col-span-2">Product</p>
+        <p>Price</p>
+        <p>Quantity</p>
+        <p>Subtotal</p>
+
+      </div>
+
+  <!-- CART ITEMS CONTAINER -->
+<div id="cartItemsContainer"></div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="bg-[#F9F1E7] rounded-xl p-8 h-fit shadow-sm">
+
+      <h2 class="text-3xl font-bold text-center mb-8">
+        Cart Totals
+      </h2>
+
+      <!-- SUBTOTAL -->
+      <div class="flex justify-between items-center mb-5">
+
+        <p class="font-medium">
+          Subtotal
+        </p>
+
+<p id="cartSubtotal" class="text-gray-400">
+  Rs. 0
+</p>
+
+      </div>
+
+      <!-- TOTAL -->
+      <div class="flex justify-between items-center mb-8">
+
+        <p class="font-semibold">
+          Total
+        </p>
+
+        <p id="cartTotal" class="text-yellow-700 text-xl font-bold">
+  Rs. 0
+</p>
+
+      </div>
+
+      <!-- BUTTON -->
+     <a href="./checkout.html">
+  <button class="w-full border border-black rounded-xl py-4 hover:bg-yellow-600 hover:border-none hover:text-white transition font-medium">
+    Check Out
+  </button>
+</a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Features -->
+<section class="max-w-7xl  features-section mx-auto px-4 py-14">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/quality.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">High Quality</h3>
+        <p class="text-gray-500 text-sm">Crafted from top materials</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/warranty.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Warranty Protection</h3>
+        <p class="text-gray-500 text-sm">Over 2 years</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/shipping.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">Free Shipping</h3>
+        <p class="text-gray-500 text-sm">Order over $150</p>
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="flex items-center gap-3">
+      <img src="./images/support.png" class="w-10 h-10 object-contain" alt="">
+      <div>
+        <h3 class="text-lg font-bold">24 / 7 Support</h3>
+        <p class="text-gray-500 text-sm">Dedicated support</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- Footer -->
+ <footer class="bg-gray-100 mt-16">
+  <div class="max-w-7xl mx-auto px-6 py-12">
+
+    <!-- Top Section -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- Logo + Address -->
+      <div>
+        <h2 class="text-2xl font-bold mb-4">Funiro.</h2>
+        <p class="text-gray-500 text-sm leading-relaxed">
+          400 University Drive Suite 200 Coral <br>
+          Gables, <br>
+          FL 33134 USA
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Links</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="./home.html" class="hover:text-yellow-600">Home</a></li>
+          <li><a href="./shop.html" class="hover:text-yellow-600">Shop</a></li>
+          <li><a href="./blog.html" class="hover:text-yellow-600">Blog</a></li>
+          <li><a href="./contact.html" class="hover:text-yellow-600">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Help</h3>
+        <ul class="space-y-3 text-sm">
+          <li><a href="#" class="hover:text-black">Payment Options</a></li>
+          <li><a href="#" class="hover:text-black">Returns</a></li>
+          <li><a href="#" class="hover:text-black">Privacy Policies</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div>
+        <h3 class="text-gray-400 mb-4 font-medium">Newsletter</h3>
+
+        <div class="flex  items-center border-b border-gray-400 pb-1">
+          <input 
+            type="email" 
+            placeholder="Enter Your Email Address" 
+            class="bg-transparent outline-none text-sm flex-1 placeholder-gray-400"
+          >
+          <button class="text-sm font-semibold ml-3 hover:underline">
+            SUBSCRIBE
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t mt-10 pt-6 text-sm text-gray-500">
+      2023 Funiro. All rights reserved
+    </div>
+
+  </div>
+</footer>
+
+<!-- LIKED PRODUCTS MODAL -->
+<div id="likedModal"
+     class="fixed inset-0 bg-black/50 hidden justify-center items-center z-[100]">
+
+  <div class="bg-white w-[90%] max-w-2xl rounded-xl p-6 relative max-h-[80vh] overflow-y-auto">
+
+    <!-- Close Button -->
+    <button id="closeLikedModal"
+            class="absolute top-4 right-4 text-2xl font-bold">
+      ×
+    </button>
+
+    <h2 class="text-2xl font-bold mb-6">
+      Liked Products
+    </h2>
+
+    <!-- Products Container -->
+    <div id="likedProductsContainer"
+         class="space-y-4">
+
+      <!-- Products will appear here -->
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="./cart.js"></script>
+</body>
+</html>

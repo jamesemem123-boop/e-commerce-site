@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Furniro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="home.css">
 </head>
@@ -21,35 +22,91 @@
             <nav class="navbar">
 
                 <!-- Logo -->
-                <div class="nav-left">
+                <div class="nav-left flex">
                     <img src="./images/furniro-logo.png" alt="Furniro logo">
                     <img src="./images/furniro.png" alt="Furniro text">
                 </div>
 
                 <!-- Navigation Links -->
                 <ul class="nav-center">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Shop</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a class="hover:text-yellow-600 transition" href="./home.html">Home</a></li>
+                    <li><a class="hover:text-yellow-600 transition" href="./shop.html">Shop</a></li>
+                    <li><a class="hover:text-yellow-600 transition" href="./blog.html">Blog</a></li>
+                    <li><a class="hover:text-yellow-600 transition" href="./contact.html">Contact</a></li>
                 </ul>
 
                 
                 <!-- Icons -->
-                <div class="nav-right">
-                    
-                    <div class="profile-wrapper">
-                        <img src="./images/profile.png" alt="Profile" id="profileBtn">
-                        
-                        <!-- THIS is your permanent welcome text -->
-                        <span id="profileWelcome" class="profile-welcome"></span>
-                    </div>
-                    
-                    <img src="./images/search-F.png" alt="Search">
-                    <img src="./images/heart.png" alt="Wishlist">
-                    <img src="./images/cart.png" alt="Cart">
-                    
-                </div>
+              <div class="nav-right">
+
+    <!-- PROFILE -->
+    <div class="profile-wrapper">
+        <img src="./images/profile.png"
+             alt="Profile"
+             id="profileBtn">
+
+        <!-- Welcome text -->
+        <span id="profileWelcome"
+              class="profile-welcome"></span>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="relative flex items-center">
+
+        <!-- Search Icon -->
+        <button id="searchBtn">
+
+            <img src="./images/search-F.png"
+                 alt="Search">
+
+        </button>
+
+        <!-- Search Box -->
+        <div id="searchBox"
+             class="absolute right-0 top-12 bg-white shadow-lg rounded-lg p-3 hidden w-72 z-50">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                class="w-full border border-gray-300 rounded-lg px-4 py-2 outline-none">
+
+        </div>
+
+    </div>
+
+    <!-- WISHLIST -->
+    <a href="#"
+       id="openLikedModal"
+       class="relative">
+
+        <img src="./images/heart.png"
+             alt="Wishlist">
+
+        <!-- Like Count -->
+        <span id="likeCount"
+              class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+            0
+        </span>
+
+    </a>
+
+    <!-- CART -->
+    <a href="./cart.html"
+       class="relative">
+
+        <img src="./images/cart.png"
+             alt="Cart">
+
+        <!-- Cart Count -->
+        <span id="cartCount"
+              class="absolute -top-2 -right-2 bg-green-600 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full hidden">
+            0
+        </span>
+
+    </a>
+
+</div>
                 <div class="menu-toggle" id="menuToggle">
                     ☰
                 </div>
@@ -102,7 +159,7 @@
         <div class="toast" id="toast"></div>
 
 
-        <section>
+                <section>
             <div class="hero-container">
                 <img src="./scandinavian-interior.png" alt="hero-image" class="hero-image">
                 <div class="hero-text">
@@ -110,7 +167,7 @@
                     <h2>Discover Our <br> New Collection</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br>
                         Ut elit tellus, luctus nec ullamcorper mattis.</p>
-                    <a class="shop-now" href="#">BUY NOW</a>
+                    <a class="shop-now" href="./shop.html">BUY NOW</a>
                 </div>
             </div>
         </section>
@@ -154,14 +211,28 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Syltherine&price=Rp%202.500.000&oldprice=Rp%203.500.000&desc=Stylish%20cafe%20chair&image=./images/Images.png">
+  
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+                                    <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -183,14 +254,28 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Leviosa&price=Rp%202.500.000&oldprice=&desc=Stylish%20cafe%20chair&image=./images/Image 2.png">
+
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+                                                                       <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -210,14 +295,26 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Lolito&price=Rp%207.000.000&oldprice=&desc=Luxury%20big%20sofa&image=./images/image 3.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+                                                                       <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -240,14 +337,26 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Respirado&price=Rp%20500.000&oldprice=&desc=Outdoor%20bar%20table%20and%20stool&image=./images/image 4.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+                                                                      <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -271,14 +380,26 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+                                  <a class="action-item" href="./singleproduct.html?name=Grivo&price=Rp%201.500.000&oldprice=&desc=Night%20lamp&image=./images/image 9.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+                                                                     <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -298,14 +419,28 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+                                  <a class="action-item" href="./singleproduct.html?name=Muggo&price=Rp%20150.000&oldprice=Rp%203.500.000&desc=Small%20mug&image=./images/product5.png">
+  
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+
+</a>
+                                                                       <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -325,14 +460,26 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Pingky&price=Rp%207.000.000&oldprice=&desc=Luxury%20big%20sofa&image=./images/product6.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+                                                                       <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -355,14 +502,26 @@
                             <div class="overlay">
                                 <a class="add-to-cart" href="#">Add to Cart</a>
                                 <div class="actions">
-                                    <div class="action-item">
-                                        <img src="./images/view.png" alt="">
-                                        <span>View</span>
-                                    </div>
-                                    <div class="action-item">
-                                        <img src="./images/heart.png" alt="">
-                                        <span>Like</span>
-                                    </div>
+<a class="action-item" href="./singleproduct.html?name=Potty&price=Rp%20500.000&oldprice=&desc=Outdoor%20bar%20table%20and%20stool&image=./images/product7.png">
+  <button class="flex items-center gap-1">
+    <img src="./images/view.png" class="w-4 h-4" alt="">
+    View
+  </button>
+</a>
+                                                                        <div class="action-item like-btn">
+
+    <img
+        src="./images/heart.png"
+        alt=""
+        class="like-icon"
+        data-default="./images/heart.png"
+        data-liked="./images/liked.png">
+
+    <span class="like-text">
+        Like
+    </span>
+
+</div>
                                 </div>
                             </div>
                         </div>
@@ -377,7 +536,7 @@
                 </div>
             </div>
             <div class="show-more">
-                <a href="#">Show More</a>
+                <a href="./shop.html">Show More</a>
             </div>
             </div>
 
@@ -389,7 +548,7 @@
                     <h2>50+ Beautiful rooms <br>
                         inspiration</h2>
                     <p>Our designer already made a lot of beautiful <br>prototipe of rooms that inspire you</p>
-                    <a href="">Explore More</a>
+                    <a href="./shop.html">Explore More</a>
                 </div>
                 <div class="carousel-box">
                     <button class="prev">&#10094;</button>
@@ -435,10 +594,10 @@
                 <div>
                     <ul class="links">
                         <li class="first-li">links</li>
-                        <li>Home</li>
-                        <li>Shop</li>
-                        <li>About</li>
-                        <li>Contact</li>
+                        <li><a href="./home.html">Home</a></li>
+                        <li><a href="./shop.html">Shop</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
 
@@ -467,6 +626,38 @@
             <p>2023 Funiro. All rights reserved.</p>
         </div>
     </main>
+
+    <!-- LIKED PRODUCTS MODAL -->
+
+<div
+    id="likedModal"
+    class="hidden fixed inset-0 bg-black/50 z-50 items-center justify-center">
+
+    <div class="bg-white w-[90%] max-w-2xl rounded-lg p-6">
+
+        <div class="flex justify-between items-center mb-4">
+
+            <h2 class="text-2xl font-bold">
+                Liked Products
+            </h2>
+
+            <button
+                id="closeLikedModal"
+                class="text-2xl">
+                ×
+            </button>
+
+        </div>
+
+        <div
+            id="likedProductsContainer"
+            class="space-y-4">
+
+        </div>
+
+    </div>
+
+</div>
 </body>
 <script src="home.js"></script>
 
