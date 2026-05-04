@@ -1,54 +1,11 @@
-window.addEventListener("load", () => {
-    const loader = document.getElementById("preloader");
-
-    // STEP 1: trigger logo split
-    loader.classList.add("split");
-
-    // STEP 2: wait for split animation, then fade out whole screen
-    setTimeout(() => {
-        loader.classList.add("hide");
-
-        // STEP 3: remove after fade completes
-        setTimeout(() => {
-            loader.style.display = "none";
-        }, 800);
-
-    }, 1000); // split animation duration
-});
-
 const menuToggle = document.getElementById("menuToggle");
 const navCenter = document.querySelector(".nav-center");
 
 menuToggle.addEventListener("click", () => {
-    navCenter.classList.toggle("active");
+  navCenter.classList.toggle("active");
 });
 
-const track = document.querySelector(".carousel-track");
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
-const carouselBox = document.querySelector(".carousel-box");
-
-let index = 0;
-const step = carouselBox.clientWidth;
-
-// const totalSlides = document.querySelectorAll(".carousel-track img").length;
-
-next.onclick = () => {
-    if (index < track.children.length - 1) {
-        index++;
-        track.style.transform = `translateX(-${index * carouselBox.clientWidth}px)`;
-    }
-};
-
-prev.onclick = () => {
-    if (index > 0) {
-        index--;
-        track.style.transform = `translateX(-${index * carouselBox.clientWidth}px)`;
-    }
-};
-
-document.addEventListener("DOMContentLoaded", () => {
-
+  document.addEventListener("DOMContentLoaded", () => {
 
     // ELEMENTS
     const profileBtn = document.getElementById("profileBtn");
@@ -75,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.classList.remove("active");
         overlay.classList.remove("active");
 
-        // 🔥 FORCE STOP ANY BLOCKING LAYER STATE
         document.body.style.overflow = "auto";
     }
 
@@ -108,8 +64,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         localStorage.setItem("user", JSON.stringify(user));
 
-        showWelcome(user.firstName);     // persistent UI
-        showToast("Signup successful");  // optional feedback
+        showWelcome(user.firstName);
+
+        showToast("Signup successful");
 
         closeModal();
     });
@@ -121,84 +78,124 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = JSON.parse(localStorage.getItem("user"));
 
         if (user) {
-            showWelcome(user.firstName);   // persistent UI
-            showToast("Login successful"); // optional feedback
+
+            showWelcome(user.firstName);
+
+            showToast("Login successful");
 
             closeModal();
+
         } else {
+
             alert("No account found. Please sign up first.");
+
         }
     });
 
-    // PERSISTENT WELCOME TEXT
+    // SHOW WELCOME
     function showWelcome(name) {
+
         if (!welcomeEl) return;
 
         welcomeEl.innerText = `Welcome ${name}`;
         welcomeEl.style.opacity = "1";
     }
 
-    // OPTIONAL TOAST
+    // TOAST
     function showToast(message) {
+
         if (!toast) return;
 
         toast.innerText = message;
+
         toast.style.opacity = "1";
         toast.style.transform = "translateY(0)";
 
         clearTimeout(toast.timer);
 
         toast.timer = setTimeout(() => {
+
             toast.style.opacity = "0";
             toast.style.transform = "translateY(-10px)";
+
         }, 2000);
     }
 
 });
 
-  // SEARCH FUNCTIONALITY
+    const cards = document.querySelectorAll(".product-card");
+  const cardsPerPage = 8;
+  let currentPage = 1;
 
+  function showPage(page) {
+    currentPage = page;
+
+    const start = (page - 1) * cardsPerPage;
+    const end = start + cardsPerPage;
+
+    cards.forEach((card, index) => {
+      card.style.display = (index >= start && index < end) ? "block" : "none";
+    });
+
+    updateButtons();
+  }
+
+  function changePage(page) {
+    showPage(page);
+  }
+
+function nextPage() {
+  const totalPages = 2;
+
+  if (currentPage < totalPages) {
+    showPage(currentPage + 1);
+  }
+}
+
+  function updateButtons() {
+    document.querySelectorAll(".page-btn").forEach((btn, i) => {
+      if (i + 1 === currentPage) {
+        btn.classList.add("bg-yellow-600", "text-white");
+        btn.classList.remove("bg-gray-200");
+      } else {
+        btn.classList.remove("bg-yellow-600", "text-white");
+        btn.classList.add("bg-gray-200");
+      }
+    });
+  }
+
+  // INITIAL LOAD
+  showPage(1);
+
+  // SEARCH FUNCTIONALITY
 const searchBtn = document.getElementById("searchBtn");
 const searchBox = document.getElementById("searchBox");
 const searchInput = document.getElementById("searchInput");
 
-const cards = document.querySelectorAll(".product-card");
-
-// Toggle search box
+// Toggle Search Box
 searchBtn.addEventListener("click", () => {
-
-    searchBox.classList.toggle("hidden");
-    searchInput.focus();
-
+  searchBox.classList.toggle("hidden");
+  searchInput.focus();
 });
 
-// Search products
+// Search Products
 searchInput.addEventListener("keyup", () => {
 
-    const searchValue =
-        searchInput.value.toLowerCase();
+  const searchValue = searchInput.value.toLowerCase();
 
-    cards.forEach((card) => {
+  cards.forEach((card) => {
 
-        const productName =
-            card.querySelector("h3")
-            .textContent
-            .toLowerCase();
+    const productName = card.querySelector("h2").textContent.toLowerCase();
 
-        if (productName.includes(searchValue)) {
+    if (productName.includes(searchValue)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
 
-            card.style.display = "block";
-
-        } else {
-
-            card.style.display = "none";
-
-        }
-
-    });
+  });
 
 });
-
 
 // NAVBAR LIKE COUNT
 const likeCount = document.getElementById("likeCount");
@@ -241,8 +238,8 @@ likeButtons.forEach((button) => {
   const card = button.closest(".product-card");
 
   const product = {
-    name: card.querySelector("h3").textContent,
-    price: card.querySelector(".new-price").textContent,
+    name: card.querySelector("h2").textContent,
+    price: card.querySelectorAll(".font-bold")[1].textContent,
     image: card.querySelector("img").src
   };
 
@@ -274,8 +271,8 @@ likeButtons.forEach((button) => {
     const card = button.closest(".product-card");
 
     const product = {
-      name: card.querySelector("h3").textContent,
-      price: card.querySelector(".new-price").textContent,
+      name: card.querySelector("h2").textContent,
+      price: card.querySelectorAll(".font-bold")[1].textContent,
       image: card.querySelector("img").src
     };
 
@@ -502,7 +499,7 @@ function syncLikeButtons() {
     const card = button.closest(".product-card");
 
     const productName =
-      card.querySelector("h3").textContent;
+      card.querySelector("h2").textContent;
 
     const icon = button.querySelector(".like-icon");
 
@@ -540,7 +537,7 @@ function syncLikeButtons() {
 
 // PRODUCT CARD ADD TO CART
 const addToCartButtons =
-  document.querySelectorAll(".add-to-cart");
+  document.querySelectorAll(".add-to-cart-btn");
 
 addToCartButtons.forEach((button) => {
 
@@ -549,8 +546,8 @@ addToCartButtons.forEach((button) => {
     const card = button.closest(".product-card");
     
 const product = {
-  name: card.querySelector("h3").textContent,
-  price: card.querySelector(".new-price").textContent,
+  name: card.querySelector("h2").textContent,
+  price: card.querySelectorAll(".font-bold")[1].textContent,
   image: card.querySelector("img").src
 };
 
